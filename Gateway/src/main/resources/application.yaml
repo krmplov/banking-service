@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bank
+    username: "${DB_USERNAME}"
+    password: "${DB_PASSWORD}"
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
+security:
+  jwt:
+    token:
+      secret-key: "${JWT_TOKEN}"
+      lifetime: "${EXPIRATION_HOURS}"
+server:
+  port: 8081
+
+bank-server:
+  url: http://localhost:8080/api/v1
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+    your.package.name: DEBUG
+
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.stat: DEBUG
+
+    org.springframework.orm.jpa: DEBUG
+    org.springframework.transaction: DEBUG
+
+    org.springframework.data.jpa.repository: DEBUG
+    org.springframework.data.jdbc.core: DEBUG
+
+    com.zaxxer.hikari: DEBUG

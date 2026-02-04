@@ -1,0 +1,21 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: storage-group
+      properties:
+        spring.json.trusted.packages: "*"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bank
+    username: "${DB_USERNAME}"
+    password: "${DB_PASSWORD}"
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
